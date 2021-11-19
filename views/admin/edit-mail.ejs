@@ -1,0 +1,70 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/mail.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-mail<% } else { %>send<% } %>" method="POST">
+            <div class="form-control">
+                <label for="title">to</label>
+                <input type="text" name="to" id="to" value="<% if (editing) { %><%= product.to %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">cc</label>
+                <input type="text" name="cc" id="cc" value="<% if (editing) { %><%= product.cc %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">bcc</label>
+                <input type="text" name="bcc" id="bcc" value="<% if (editing) { %><%= product.bcc %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">subject</label>
+                <input type="text" name="subject" id="subject" value="<% if (editing) { %><%= product.subject %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">message</label>
+                <input type="text" name="message" id="message" value="<% if (editing) { %><%= product.message %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">sender</label>
+                <input type="text" name="sender" id="sender" value="<% if (editing) { %><%= product.sender %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">replyTo</label>
+                <input type="text" name="replyTo" id="replyTo" value="<% if (editing) { %><%= product.replyTo %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">application</label>
+                <input type="text" name="application" id="application" value="<% if (editing) { %><%= product.application %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="price">priority</label>
+                <input type="number" name="priority" id="priority" step="0" value="<% if (editing) { %><%= product.priority %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="price">company</label>
+                <input type="number" name="company" id="company" step="0" value="<% if (editing) { %><%= product.company %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="price">template</label>
+                <input type="number" name="template" id="template" step="0" value="<% if (editing) { %><%= product.template %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= product.imageUrl %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="title">state</label>
+                <input type="text" name="state" id="state" value="<% if (editing) { %><%= product.state %><% } %>">
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= product.id %>" name="mailId">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update Mail<% } else { %>Send Mail<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>
