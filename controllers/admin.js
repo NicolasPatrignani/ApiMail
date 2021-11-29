@@ -211,7 +211,7 @@ exports.getExecutePriority = (req, res, next) => {
             products => {
                 products.forEach(mail => {
 
-                    ejs.renderFile(path.join(__dirname, "../", "/views/mail_template.ejs"), {
+                    ejs.renderFile(path.join(__dirname, "../", "/views/asignacion_instituto.ejs"), {
                         body: mail.message
                     }, function(err, data) {
                         if (err) {
@@ -268,13 +268,13 @@ exports.getExecutePriority = (req, res, next) => {
             }
 
 
-            /*  products => {
-    res.render('admin/execute', {
-      prods: products,
-      pageTitle: 'Admin Mails',
-      path: '/admin/execute'
-    });
-  } */
+                    /*  products => {
+            res.render('admin/execute', {
+                prods: products,
+                pageTitle: 'Admin Mails',
+                path: '/admin/execute'
+            });
+            } */
         )
         .catch(err => console.log(err));
 };
@@ -309,7 +309,7 @@ exports.getExecute = (req, res, next) => {
         .then((products) => {
                 products.forEach(mail => {
                     console.log(mail);
-                    ejs.renderFile(path.join(__dirname, "../", "/views/mail_template.ejs"), {
+                    ejs.renderFile(path.join(__dirname, "../", "/views/asignacion_instituto.ejs"), {
                         body: mail.message
                     }, function(err, data) {
                         if (err) {
@@ -370,7 +370,7 @@ exports.getRetry = (req, res, next) => {
             products => {
                 products.forEach(mail => {
 
-                    ejs.renderFile(path.join(__dirname, "../", "/views/mail_template.ejs"), {
+                    ejs.renderFile(path.join(__dirname, "../", "/views/asignacion_instituto.ejs"), {
                         body: mail.message
                     }, function(err, data) {
                         if (err) {
@@ -451,7 +451,7 @@ exports.getRetryAll = (req, res, next) => {
             products => {
                 products.forEach(mail => {
 
-                    ejs.renderFile(path.join(__dirname, "../", "/views/mail_template.ejs"), {
+                    ejs.renderFile(path.join(__dirname, "../", "/views/asignacion_instituto.ejs"), {
                         body: mail.message
                     }, function(err, data) {
                         if (err) {

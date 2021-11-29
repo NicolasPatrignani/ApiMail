@@ -2,7 +2,6 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-/* const multer = require('multer'); */
 
 const errorController = require('./controllers/error');
 const sequelize = require('./util/database');
@@ -13,33 +12,8 @@ const morgan = require('morgan');
 
 const app = express();
 
-/* const fileStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'attachments');
-  },
-  filename: (req, file, cb) => {
-    cb(null, new Date().toISOString() + '-' + file.originalname);
-  }
-});
-
-const fileFilter = (req, file, cb) => {
-  if (
-    file.mimetype === 'image/png' ||
-    file.mimetype === 'image/jpg' ||
-    file.mimetype === 'image/jpeg'
-  ) {
-    cb(null, true);
-  } else {
-    cb(null, false);
-  }
-}; */
-
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-
-/* app.use(
-  multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
-); */
 
 app.use(
   express.urlencoded({
